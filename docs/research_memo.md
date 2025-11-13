@@ -17,7 +17,7 @@ The log-likelihood, $ln\mathcal{L}(\theta) = -\frac{1}{2}\mathbf{r}^\top \mathbf
 ## Sampling Algorithms and Tuning
 Two samplers were developed:
 - Metropolis-Hastings (MCMC): This is a random walk MCMC sampler, which was implemented in `mcmc.py`. This algorithm was tuned in iterations by adjusting the proposal covariance until the acceptance rate fell within 20-50%. 
-- Hamiltonian Monte Carlo (HMC): This is a gradient based sampler, which was implemented in `hmc.py`. The core of this algorithm was the Leapfrog integrator, which required computing the gradient of the potential energy. HMC was tuned to target a higher acceptance rate (60-80%) by adjusting the step size ($\epsilon$) and the trajectory length ($L$).
+- Hamiltonian Monte Carlo (HMC): This is a gradient based sampler, which was implemented in `hmc.py`. The core of this algorithm was the Leapfrog integrator, which required computing the gradient of the potential energy. HMC was tuned to target a higher acceptance rate (60-80%) by adjusting the step size ($\epsilon$) and the trajectory length ($L$). For this project, the chosen tuning to achieve a good acceptance rate was $\epsilon=0.009$ and $L=11$.
 
 ## Convergence and Validation
 Four independent chains were run for both MCMC and HMC. I assessed convergence using the following metrics, computed on post burn-in samples (20% burn-in discarded):
