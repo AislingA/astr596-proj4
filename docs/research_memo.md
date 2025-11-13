@@ -10,14 +10,14 @@ The goal of this project was to build a universal Bayesian inference engine and 
 # Methodology
 
 ## Forward Model and Likelihood
-The forward model, in `cosmology.py`, computes the theoretical distnace modulus ($\mu (z;\Omega _m;h)$) for a flat $\lambda$CDM universe. The luminosity distance $D_L(z)$ was calculated using the Pen approximation (1999), which was validated with direct numerical integration using `scipy.integrate.quad`. The parameter bounds were set by flat, uniform priors: $\Omega _m = [0, 1.2]$ and $h = [0.5, 0.9]$. 
+The forward model, in `cosmology.py`, computes the theoretical distance modulus ($\mu (z;\Omega _m;h)$) for a flat $\lambda$CDM universe. The luminosity distance $D_L(z)$ was calculated using the Pen approximation (1999), which was validated with direct numerical integration using `scipy.integrate.quad`. The parameter bounds were set by flat, uniform priors: $\Omega _m = [0, 1.2]$ and $h = [0.5, 0.9]$. 
 
 The log-likelihood, $ln\mathcal{L}(\theta) = -\frac{1}{2}\mathbf{r}^\top \mathbf{C}^{-1} \mathbf{r}$, was computed using the full 31x31 covariance matrix (C) from the JLA data set. The inverse covariance was computed using the Cholesky decomposition, `(cho_factor)`.
 
 ## Sampling Algorithms and Tuning
 Two samplers were developed:
 - Metropolis-Hastings (MCMC): This is a random walk MCMC sampler, which was implemented in `mcmc.py`. This algorithm was tuned in iterations by adjusting the proposal covariance until the acceptance rate fell within 20-50%. 
-- Hamiltonian Monte Carlo (HMC): This is a gradient based sampler, which was implemented in `hmc.py`. The core of this algorithm was the Leapfrog integrator, which required computing the gradient of the potential energy. HMC was tuned to taregt a higher acceptance rate (60-80%) by adjusting the step size ($\epsilon$) and the trajectory length ($L$).
+- Hamiltonian Monte Carlo (HMC): This is a gradient based sampler, which was implemented in `hmc.py`. The core of this algorithm was the Leapfrog integrator, which required computing the gradient of the potential energy. HMC was tuned to target a higher acceptance rate (60-80%) by adjusting the step size ($\epsilon$) and the trajectory length ($L$).
 
 ## Convergence and Validation
 Four independent chains were run for both MCMC and HMC. I assessed convergence using the following metrics, computed on post burn-in samples (20% burn-in discarded):
