@@ -30,7 +30,7 @@ Execute the following scripts, which will save the chains and timing data to ./o
 ```bash
 python run_mcmc.py
 ```
-# Run HMC production (saves chains and time)
+### Run HMC production (saves chains and time)
 ```bash
 python run_hmc.py
 ```
