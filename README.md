@@ -1,10 +1,10 @@
 # Project 4: Universal Inference Engine for Cosmology
 
-This repository contains the code for Project 4, which involves building and comparing general-purpose MCMC and Hamiltonian Monte Carlo (HMC) samplers. These engines are applied to the JLA Type Ia supernova dataset to infer the cosmological parameters of a flat universe: the matter density ($\Omega_m$) and the normalized Hubble constant ($h$).
+This repository contains the code for Project 4, which involves building and comparing MCMC and HMC samplers. These samplers are applied to the JLA Type Ia supernova dataset to infer the cosmological parameters of a flat universe: the matter density ($\Omega_m$) and the Hubble constant ($h$).
 
 ##  Scientific Goal
 
-To measure the composition of the cosmos by determining the posterior distribution for the cosmological parameters ($\Omega_m, h$), which controls the expansion history of the universe.
+To measure the composition of the universe by determining the posterior distribution for the cosmological parameters ($\Omega_m, h$), which controls the expansion history of the universe.
 
 ## Installation and Setup
 
